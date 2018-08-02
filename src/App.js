@@ -35,7 +35,7 @@ class App extends Component {
     let marker = new window.google.maps.Marker({
       position: mapLoc,
       map: map,
-      draggable: true,
+      mapTypeId: 'hybrid',
       title: 'St. Peter`s Basilica - the world`s largest'
     });
 
