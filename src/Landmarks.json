@@ -7,6 +7,6 @@
   {"id": 6, "title": "Sant Agnese in Agone", "position": {"lat": 41.8988438, "lng": 12.4703636}},
   {"id": 7, "title": "Castel Sant Angelo", "position": {"lat": 41.9030632, "lng": 12.4640873}},
   {"id": 8, "title": "Sistine Chapel", "position": {"lat": 41.9029468, "lng": 12.4522948}},
-  {"id": 9, "title": "St. Peter’s Basilica", "position": {"lat": 41.9029468, "lng": 12.4522948}}
+  {"id": 9, "title": "St. Peter’s Basilica", "position": {"lat": 41.9029468, "lng": 12.4522948}},
   {"id": 10, "title": "Trevi Fountain", "position": {"lat": 41.9010333, "lng": 12.4810843}}
 ]
