@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import * as data from './Landmarks.json';
 
 function loadMapJS(src) {
    let ref = window.document.getElementsByTagName('script')[0];
