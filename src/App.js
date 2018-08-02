@@ -19,15 +19,26 @@ class App extends Component {
   constructor(props) {
     super(props);
   }
+
    componentDidMount() {
     window.initMap = this.initMap;
     loadMapJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyAQjfF9VNsHrOWzGs8IE9wtU96XbMJwcEU&callback=initMap');
   }
+
    initMap() {
+    const mapLoc = { lat: 41.9035801, lng: 12.4500056 };
     let map = new window.google.maps.Map(document.getElementById('map'), {
       zoom: 15,
-      center: { lat: 41.9035801, lng: 12.4500056 }
+      center: mapLoc
     });
+
+    let marker = new window.google.maps.Marker({
+      position: mapLoc,
+      map: map,
+      draggable: true,
+      title: 'St. Peter`s Basilica - the world`s largest'
+    });
+
   }
 
   render() {
