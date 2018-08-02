@@ -35,10 +35,19 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">FEND Project: Vatican Map</h1>
+          <h1 className="App-title">Map of Rome and the Vatican</h1>
         </header>
-        <div id="map">
-        </div>
+        <main>
+          <aside>
+            <h2>List</h2>
+          </aside>
+          <section>
+            <div id="map"></div>
+            </section>
+          </main>
+        <footer>
+          <p>FEND Project for Udacity | Created by Mildred Pastryk | 2018</p>
+        </footer>
       </div>
     );
   }

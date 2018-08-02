@@ -9,13 +9,14 @@
 
 .App-header {
   background-color: #78787a;
-  height: 90px;
+  border: 1px solid #61dbfb;
+  height: 80px;
   padding: 20px;
   color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 .App-intro {
@@ -29,8 +30,34 @@
 
 /* Map
 */
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
 #map {
-  width: 100vw;
+  float: right;
+  width: 75vw;
   height: 80vh;
   background-color: #78787a;
+  border: 1px solid #61dbfb;
+}
+
+aside {
+  display: block;
+  float: left;
+  border: 1px solid #61dbfb;
+  width: 30vw;
+  height: 80vh;
+}
+
+footer {
+  border: 1px solid #61dbfb;
+  background-color: #78787a;
+  color: white;
+}
+
+p {
+  font-size: .7em;
 }
