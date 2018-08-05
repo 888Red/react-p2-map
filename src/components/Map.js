@@ -40,7 +40,7 @@ class Map extends Component {
     }
 
    initMap() {
-     const map = new window.google.maps.Map(this.mapElement, {
+     const map = new window.google.maps.Map(this.mapElement.current, {
       center: this.state.mapLoc,
       zoom: this.state.zoom
     })
@@ -73,11 +73,37 @@ class Map extends Component {
 
     setLocation() {
       const locationsAll = this.state.locations.map(object => {
-        return object;
-      })
-      this.setState({locations: locationsAll})
+        const position = {lat: object.venue.location.lat, lng: object.venue.location.lng};
+        this.addInfoWindow(object, position);
+        this.addMarkers(object, position, this.state.map);
+          return object;
+        })
+        this.setState({locations: locationsAll})
     }
 
+    addInfoWindow(object, position) {
+      const infoWindow = new window.google.maps.InfoWindow();
+      infoWindow.setPosition(position);
+      infoWindow.addListener('closeclick', () => {
+        if (object.venue.marker.animation) {
+          object.venue.marker.setAnimation(null);
+        }
+      })
+      object.venue.infoWindow = infoWindow;
+    }
+
+    addMarkers(object, position, map) {
+      const marker = new window.google.maps.Marker();
+      marker.setPosition(position);
+      marker.setMap(map);
+      marker.addListener('click', () => {
+        this.openInfoWindow(object, position, map, marker)
+        if (marker.animation) {
+          marker.setAnimation(null);
+        }
+      });
+      object.venue.marker = marker;
+    }
 
   render() {
     return (
