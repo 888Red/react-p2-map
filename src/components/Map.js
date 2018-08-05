@@ -22,7 +22,7 @@ function createURL(fsURL, params) {
 
 function FetchError(props) {
   return (
-    <div>
+    <div className="fs-error">
       <h3>Error getting Foursquare venues</h3>
     </div>
   )

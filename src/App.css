@@ -30,6 +30,28 @@ header {
   border: 1px solid #61dbfb;
 }
 
+.fs-error {
+  text-align: center;
+  color: #a41f2b;
+  border: 2px solid red;
+  background-color: #dbe4f2;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  top: 30%;
+  z-index: 10;
+}
+
+.info-window {
+  border: 1px solid red;
+  text-align: center;
+}
+
+.foursquare {
+  height: 50%;
+  width: 50%;
+}
+
 /***** Footer *****/
 
 .App-logo {
