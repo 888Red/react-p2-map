@@ -8,6 +8,7 @@ h1 {
 .fountain {
   width: 75px;
   height: 12vh;
+  padding-right: 10px;
 }
 
 header {
