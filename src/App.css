@@ -1,26 +1,40 @@
-.App {
-  text-align: center;
+/***** Typography *****/
+h1 {
+  padding-right: 10px;
 }
+
+/***** Header *****/
+
+.fountain {
+  width: 75px;
+  height: 12vh;
+}
+
+header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 15vh;
+  color: #61dbfb;
+  border: 1px solid #61dbfb;
+}
+
+/***** Map *****/
+
+#map {
+  width: 100vw;
+  height: 80vh;
+  background-color: #78787a;
+  border: 1px solid #61dbfb;
+}
+
+/***** Footer *****/
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 50px;
-}
-
-.App-header {
-  background-color: #78787a;
-  border: 1px solid #61dbfb;
-  height: 80px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.25em;
-}
-
-.App-intro {
-  font-size: large;
+  padding-top: 8px;
 }
 
 @keyframes App-logo-spin {
@@ -28,31 +42,8 @@
   to { transform: rotate(360deg); }
 }
 
-/* Map
-*/
-
-main {
-  display: flex;
-  flex-direction: row;
-}
-
-#map {
-  float: right;
-  width: 75vw;
-  height: 80vh;
-  background-color: #78787a;
-  border: 1px solid #61dbfb;
-}
-
-aside {
-  display: block;
-  float: left;
-  border: 1px solid #61dbfb;
-  width: 30vw;
-  height: 80vh;
-}
-
 footer {
+  display: flex;
   border: 1px solid #61dbfb;
   background-color: #78787a;
   color: white;
