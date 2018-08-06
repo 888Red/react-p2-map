@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Header from './Header.js'
+import Fountains from './Fountains.js'
 import foursquare from '../img/foursquare.png'
 
 /* Functions */
@@ -41,7 +42,9 @@ class Map extends Component {
       zoom: 15,
       locations: [],
       mapLoc: { lat: 41.9005213979, lng: 12.4765647604 },
-      fetchError: false
+      fetchError: false,
+      viewList: false,
+      filter: ''
     }
   }
 
@@ -121,7 +124,6 @@ class Map extends Component {
     }
 
     /*  Render updates of InfoWindow and Markers */
-
     openInfoWindow(object, position, map, marker) {
       const updateInfoWindow = this.state.locations.map(location => {
         if (location.venue.id === object.venue.id) {
@@ -147,20 +149,98 @@ class Map extends Component {
       div.className = 'info-window';
       ReactDOM.render(<InfoWindowDetails object={object} />, div)
       object.venue.infoWindow.setContent(div);
+    }
+
+    updateViewList() {
+      this.setState({viewList: !this.state.viewList});
+    }
+
+    updateFilter(filter) {
+      this.setState({filter: filter}, () => this.filterList(this.state.locations))
+    }
+
+    parseName(object) {
+      const name = object.venue.name;
+      return name;
+    }
+
+    parseAddress(object) {
+      const address = object.venue.location.formattedAddress[0] + ', ' + object.venue.location.formattedAddress[1];
+      return address;
+    }
+
+    filterList(stateLocations) {
+      let showList = this.state.locations;
+      if (this.state.filter !== '') {
+          showList = stateLocations.filter(object =>
+            this.parseName(object).toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1 ||
+            this.parseAddress(object).toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1
+          )
+          this.updateMarkers(showList)
+      } else {
+          this.updateMarkers(showList)
+      }
+    }
+
+    updateMarkers(showList) {
+      const markerUpdate = this.state.locations.map(location => {
+      let show = false;
+        showList.forEach(displayLocation => {
+          if (location.venue.id === displayLocation.venue.id) {
+          show = true;
+        }
+      })
+      if (show) {
+        location.venue.marker.setMap(this.state.map);
+        return location;
+      } else {
+        location.venue.marker.setMap(null);
+        return location;
+      }
+    })
+    this.setState({locations: markerUpdate});
   }
+
+  bounceMarker(object) {
+    const animate = this.state.locations.map(location => {
+      if (location.venue.id === object.venue.id) {
+        if (location.venue.marker.animation) {
+          location.venue.marker.setAnimation(null);
+          return location;
+        }  else {
+          location.venue.marker.setAnimation(window.google.maps.Animation.BOUNCE);
+          return location;
+        }
+      } else {
+        location.venue.marker.setAnimation(null);
+        return location;
+      }
+    })
+    this.setState({locations: animate});
+}
 
   render() {
   return (
     <div>
-      <Header/>
-
+      <Header
+        updateViewList={this.updateViewList.bind(this)}
+      />
+      {this.state.viewList &&
+          <Fountains
+            {...this.state}
+            openInfoWindow={this.openInfoWindow.bind(this)}
+            parseName={this.parseName.bind(this)}
+            updateFilter={this.updateFilter.bind(this)}
+            updateMarkers={this.updateMarkers.bind(this)}
+            bounceMarker={this.bounceMarker.bind(this)}
+          />}
       <div
         id="map"
         ref={this.mapElement}></div>
       {this.state.fetchError && <FetchError />}
     </div>
   )
-}
+  }
 }
 
 export default Map

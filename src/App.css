@@ -61,6 +61,12 @@ header {
   background-color: #569cd6;
 }
 
+/***** Fountains *****/
+
+.list {
+  width: 50%;
+}
+
 /***** Footer *****/
 
 .App-logo {
