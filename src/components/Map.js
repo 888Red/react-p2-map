@@ -8,8 +8,9 @@ function InfoWindowDetails(props) {
   return (
     <React.Fragment>
       <h3>{props.object.venue.name}</h3>
-      <h4>Address:</h4><p>{props.object.venue.location.formattedAddress[0]}</p>
-      <p>{props.object.venue.location.formattedAddress[1]}</p>
+      <img className="fs-icon" src={`${props.object.venue.categories[0].icon.prefix}88${props.object.venue.categories[0].icon.suffix}`} alt="venue category icon" />
+      <h4>Address:</h4><h5>{props.object.venue.location.formattedAddress[0]}</h5>
+      <h5>{props.object.venue.location.formattedAddress[1]}</h5>
       <img className="foursquare" src={foursquare} alt="powered by foursquare" />
     </React.Fragment>
   )
