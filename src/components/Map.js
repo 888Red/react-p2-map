@@ -8,10 +8,10 @@ import foursquare from '../img/foursquare.png'
 function InfoWindowDetails(props) {
   return (
     <React.Fragment>
-      <h3>{props.object.venue.name}</h3>
-      <img className="fs-icon" src={`${props.object.venue.categories[0].icon.prefix}88${props.object.venue.categories[0].icon.suffix}`} alt="venue category icon" />
-      <h4>Address:</h4><h5>{props.object.venue.location.formattedAddress[0]}</h5>
-      <h5>{props.object.venue.location.formattedAddress[1]}</h5>
+      <h4>{props.object.venue.name}</h4>
+      <img className="fs-icon" src={`${props.object.venue.categories[0].icon.prefix}64${props.object.venue.categories[0].icon.suffix}`} alt="venue category icon" />
+      <h5>Address:</h5><h6>{props.object.venue.location.formattedAddress[0]}</h6>
+      <h6>{props.object.venue.location.formattedAddress[1]}</h6>
       <img className="foursquare" src={foursquare} alt="powered by foursquare" />
     </React.Fragment>
   )
@@ -236,7 +236,9 @@ class Map extends Component {
           />}
       <div
         id="map"
-        ref={this.mapElement}></div>
+        ref={this.mapElement}
+        className={this.state.viewList ? 'map-list' : 'map-only'}>
+      </div>
       {this.state.fetchError && <FetchError />}
     </div>
   )

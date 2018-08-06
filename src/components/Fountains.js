@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 class Fountains extends Component {
   render() {
     return (
-      <div>
-        <div>
+      <div className="list">
+        <div className="search">
           <input
             type="text"
             value={this.props.filter}
@@ -25,7 +25,7 @@ class Fountains extends Component {
                     this.props.openInfoWindow(object, {lat: object.venue.location.lat, lng: object.venue.location.lng}, this.props.map, object.venue.marker)
                   }}
                   >
-                  <h5>{this.props.parseName(object)}</h5>
+                  <h6>{this.props.parseName(object)}</h6>
                 </li>
               )
             })

@@ -15,7 +15,7 @@ class App extends Component {
 
       <footer>
         <img src={logo} className="App-logo" alt="logo" />
-        <h6>FEND Project for Udacity | Created by Mildred Pastryk | 2018</h6>
+        <p>FEND Project for Udacity | Created by Mildred Pastryk | 2018</p>
       </footer>
       </div>
     );
