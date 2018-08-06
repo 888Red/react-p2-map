@@ -24,7 +24,7 @@ function createURL(fsURL, params) {
 
 function FetchError(props) {
   return (
-    <div className="fs-error">
+    <div className="fs-error" role="alert">
       <h3>Error getting Foursquare venues</h3>
     </div>
   )

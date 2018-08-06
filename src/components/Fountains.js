@@ -3,10 +3,11 @@ import React, { Component } from 'react'
 class Fountains extends Component {
   render() {
     return (
-      <div className="list">
+      <div className="list" role="list">
         <div className="search">
           <input
             type="text"
+            aria-label="Search box"
             value={this.props.filter}
             placeholder="Search | Filter"
             onChange={(event) => this.props.updateFilter(event.target.value)}
@@ -20,6 +21,8 @@ class Fountains extends Component {
                 <li
                   key={object.venue.id}
                   className={object.venue.id}
+                  aria-labelledby={object.venue.name}
+                  tabIndex='0'
                   onClick={() => {
                     this.props.bounceMarker(object)
                     this.props.openInfoWindow(object, {lat: object.venue.location.lat, lng: object.venue.location.lng}, this.props.map, object.venue.marker)

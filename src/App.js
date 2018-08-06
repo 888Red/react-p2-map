@@ -6,9 +6,9 @@ import Map from './components/Map.js'
 class App extends Component {
   render() {
     return (
-      <div>
+      <div role="main">
         <section>
-          <div className="map">
+          <div className="map" role="application">
             <Map />
           </div>
         </section>
