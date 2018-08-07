@@ -5,7 +5,9 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <a aria-label="Show locations"
+        <a
+          role="link"
+          aria-label="Show locations"
           tabIndex="0"
           onClick={() => {
             this.props.updateViewList()

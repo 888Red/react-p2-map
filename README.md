@@ -20,13 +20,22 @@ The map is centered at the GPS coordinates of Fontana di Trevi in Rome, Italy. T
 
 The *Fountain* image on the header is a toggle that shows and hides the list of the 25 locations. These locations can be filtered by names. When the name of the location is clicked, the same InfoWindow from Foursquare appears and the red marker bounces.
 
-### Installation
+### Installation in Development Mode
 
 - [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/get-npm) should be installed in your machine to run this app.
-- Clone this repository
-- Go to the root of this folder in your terminal
-- Run `npm install` to install dependencies
-- Run `npm start` to open the browser pointing to http://localhost:3000
+- Clone this repository.
+- Go to the root of this folder in your terminal.
+- Run `npm install` to install dependencies.
+- Run `npm start` to open the browser pointing to http://localhost:3000.
+
+### Installation in Production Mode
+
+- In your terminal run `npm run build` to create a minified bundle and optimize the app for better deployment.
+- The app has a **service worker** so that the app loads from local cache.
+
+### Deployment
+
+[GitHub Pages](https://888red.github.io/react-p2-map/)
 
 ### Dependencies
 
@@ -35,10 +44,6 @@ The *Fountain* image on the header is a toggle that shows and hides the list of 
 - React | [Create React App](https://github.com/facebookincubator/create-react-app)
 - [Google Maps API](https://developers.google.com/maps/documentation/)
 - [Foursquare API](https://developer.foursquare.com/places-api)
-
-### Deployment
-
-[GitHub Pages](https://888red.github.io/react-p2-map/)
 
 ### Credits
 

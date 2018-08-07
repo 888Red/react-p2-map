@@ -21,8 +21,8 @@ class Fountains extends Component {
                 <li
                   key={object.venue.id}
                   className={object.venue.id}
-                  aria-labelledby={object.venue.name}
                   tabIndex='0'
+                  role="button"
                   onClick={() => {
                     this.props.bounceMarker(object)
                     this.props.openInfoWindow(object, {lat: object.venue.location.lat, lng: object.venue.location.lng}, this.props.map, object.venue.marker)

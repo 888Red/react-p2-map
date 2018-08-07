@@ -22,10 +22,11 @@ function createURL(fsURL, params) {
   return fsURL.concat(paramString);
 }
 
+/* If fetchError state is true*/
 function FetchError(props) {
   return (
     <div className="fs-error" role="alert">
-      <h3>Error getting Foursquare venues</h3>
+      <h3>Error getting Foursquare venues!</h3>
     </div>
   )
 }
@@ -81,6 +82,7 @@ class Map extends Component {
       .then(result => result.json())
       .then(result => {
         if (result.meta.code !== 200) {
+          console.log('Status Code: ' + result.meta.code + ' Detail: ' + result.meta.errorDetail)
           this.setState({fetchError: true})
         }
         return this.setState({locations: result.response.groups[0].items}, this.setLocation)

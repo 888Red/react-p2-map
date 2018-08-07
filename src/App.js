@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './img/logo.svg';
 import './App.css';
 import Map from './components/Map.js'
 
-class App extends Component {
-  render() {
+function App (props) {
     return (
       <div role="main">
         <section>
@@ -13,13 +12,12 @@ class App extends Component {
           </div>
         </section>
 
-      <footer>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>FEND Project for Udacity | Created by Mildred Pastryk | 2018</p>
-      </footer>
+        <footer>
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>FEND Project for Udacity | Created by Mildred Pastryk | 2018</p>
+        </footer>
       </div>
     );
-  }
 }
 
 export default App;
